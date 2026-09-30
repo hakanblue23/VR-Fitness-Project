@@ -16,12 +16,12 @@ CREATE TABLE trainer (
     specialty VARCHAR(40) NOT NULL
 );
 
--- main workouts available in VR
+
 CREATE TABLE workout (
     workout_id INT PRIMARY KEY,
     trainer_id INT NOT NULL,  
     name VARCHAR(60) NOT NULL,
-    level VARCHAR(20) NOT NULL,  -- beginner, intermediate, etc
+    level VARCHAR(20) NOT NULL,
     duration INT NOT NULL,       
     environment VARCHAR(60) NOT NULL,
     FOREIGN KEY (trainer_id) REFERENCES trainer(trainer_id)
@@ -38,7 +38,7 @@ CREATE TABLE exercise (
 CREATE TABLE workout_exercise (
     workout_id INT NOT NULL,
     exercise_id INT NOT NULL,
-    position INT NOT NULL,       -- order in the workout
+    position INT NOT NULL,       
     duration INT NOT NULL,
     PRIMARY KEY (workout_id, exercise_id),
     FOREIGN KEY (workout_id) REFERENCES workout(workout_id),

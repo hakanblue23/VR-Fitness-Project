@@ -27,14 +27,13 @@ CREATE TABLE workout (
     FOREIGN KEY (trainer_id) REFERENCES trainer(trainer_id)
 );
 
--- individual exercises 
 CREATE TABLE exercise (
-    exercise_id INT PRIMARY KEY,
+exercise_id INT PRIMARY KEY,
     name VARCHAR(60) NOT NULL,
     type VARCHAR(40) NOT NULL
 );
 
--- bridging table for workouts and their steps/exercises
+
 CREATE TABLE workout_exercise (
     workout_id INT NOT NULL,
     exercise_id INT NOT NULL,
@@ -58,7 +57,7 @@ CREATE TABLE session (
     FOREIGN KEY (workout_id) REFERENCES workout(workout_id)
 );
 
--- Dummy data for testing the local environment...
+-- Dummy data for testing
 INSERT INTO member (member_id, name, email, join_date)
 VALUES
 (1, 'Alex Smith', 'alex@example.com', '2026-09-01'),
